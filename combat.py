@@ -1,5 +1,5 @@
-from tradingagents.graph.trading_graph_combat import TradingAgentsGraphCombat
-from tradingagents.default_config_combat import DEFAULT_CONFIG
+from combatagents.graph.trading_graph_combat import TradingAgentsGraphCombat
+from combatagents.default_config_combat import DEFAULT_CONFIG
 
 from dotenv import load_dotenv
 import time
@@ -18,7 +18,4 @@ ta = TradingAgentsGraphCombat(debug=True, config=config)
 
 # forward propagate
 decision = ta.propagate(config["topic"])
-print(decision)
 
-# Memorize mistakes and reflect
-# ta.reflect_and_remember(1000) # parameter is the position returns
