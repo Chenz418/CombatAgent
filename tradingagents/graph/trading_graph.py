@@ -41,7 +41,7 @@ from .setup import GraphSetup
 from .propagation import Propagator
 from .reflection import Reflector
 from .signal_processing import SignalProcessor
-
+import time
 
 class TradingAgentsGraph:
     """Main class that orchestrates the trading agents framework."""

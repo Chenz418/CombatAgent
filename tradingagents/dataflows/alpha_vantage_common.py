@@ -55,7 +55,9 @@ def _make_api_request(function_name: str, params: dict) -> dict | str:
     
     # Handle entitlement parameter if present in params or global variable
     current_entitlement = globals().get('_current_entitlement')
+    print(f"Current entitlement: {current_entitlement}")
     entitlement = api_params.get("entitlement") or current_entitlement
+    print(f"Using entitlement: {entitlement}")
     
     if entitlement:
         api_params["entitlement"] = entitlement

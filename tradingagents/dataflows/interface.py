@@ -19,6 +19,7 @@ from .alpha_vantage_common import AlphaVantageRateLimitError
 
 # Configuration and routing logic
 from .config import get_config
+import time
 
 # Tools organized by category
 TOOLS_CATEGORIES = {
@@ -145,12 +146,14 @@ def route_to_vendor(method: str, *args, **kwargs):
 
     # Handle comma-separated vendors
     primary_vendors = [v.strip() for v in vendor_config.split(',')]
+    print(f'primary vender for social information {primary_vendors}')
 
     if method not in VENDOR_METHODS:
         raise ValueError(f"Method '{method}' not supported")
 
     # Get all available vendors for this method for fallback
     all_available_vendors = list(VENDOR_METHODS[method].keys())
+    print(f'all_available venders for social information {all_available_vendors}')
     
     # Create fallback vendor list: primary vendors first, then remaining vendors as fallbacks
     fallback_vendors = primary_vendors.copy()
@@ -242,3 +245,12 @@ def route_to_vendor(method: str, *args, **kwargs):
     else:
         # Convert all results to strings and concatenate
         return '\n'.join(str(result) for result in results)
+
+if __name__ == "__main__":
+    ticker = "NVDA"
+    start_date = "2024-01-01"
+    end_date = "2024-12-31"
+    get_news = route_to_vendor("get_news", ticker, start_date, end_date)
+    # archive_file = r"D:/APhDUNIBO/TradingAgent/localProject/TradingAgents/tradingagents/get_news.txt"
+    # with open(archive_file, "w") as file:
+    #     file.write(get_news)

@@ -3,6 +3,7 @@ import time
 import json
 from tradingagents.agents.utils.agent_utils import get_stock_data, get_indicators
 from tradingagents.dataflows.config import get_config
+from langchain_core.messages import messages_to_dict
 
 
 def create_market_analyst(llm):
@@ -71,6 +72,12 @@ Volume-Based Indicators:
         chain = prompt | llm.bind_tools(tools)
 
         result = chain.invoke(state["messages"])
+
+        dicts = messages_to_dict(state["messages"])
+        archive_file = r"D:/APhDUNIBO/TradingAgent/localProject/TradingAgents/tradingagents/state_messgae.json"
+        with open(archive_file, "a", encoding="utf-8") as file:
+            json.dump(dicts, file, indent=4)
+        
 
         report = ""
 

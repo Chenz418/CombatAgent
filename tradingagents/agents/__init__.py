@@ -18,6 +18,10 @@ from .managers.research_manager import create_research_manager
 from .managers.risk_manager import create_risk_manager
 
 from .trader.trader import create_trader
+from .combater.positive_combater import create_positive_combater
+from .combater.negative_combater import create_negative_combater
+from .utils.agent_states_combat import AgentStateCombat
+from .combat_architect.architect import create_debate_architect
 
 __all__ = [
     "FinancialSituationMemory",
@@ -37,4 +41,8 @@ __all__ = [
     "create_safe_debator",
     "create_social_media_analyst",
     "create_trader",
+    "create_positive_combater",
+    "create_negative_combater",
+    "AgentStateCombat",
+    "create_debate_architect",
 ]
