@@ -28,3 +28,13 @@ export GOOGLE_API_KEY=...          # Google (Gemini)
 export ANTHROPIC_API_KEY=...       # Anthropic (Claude)
 export XAI_API_KEY=...             # xAI (Grok)
 ```
+
+## Acknowledgements
+
+This project is built upon the foundational architecture of the **TradingAgents** framework. We highly appreciate the original authors for their contribution to the Multi-Agent LLM community.
+
+If you find this work or the underlying framework helpful, please reference:
+
+> **TradingAgents: Multi-Agents LLM Financial Trading Framework** > *Yijia Xiao, Edward Sun, Di Luo, and Wei Wang (2025).* > [arXiv:2412.20138](https://arxiv.org/abs/2412.20138) | [Original Repository](https://github.com/YijiaXiao/TradingAgents)
+
+---
